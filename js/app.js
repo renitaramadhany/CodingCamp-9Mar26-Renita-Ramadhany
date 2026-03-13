@@ -809,10 +809,11 @@ class QuickLinksComponent {
             linkName.style.cursor = 'pointer';
             linkName.addEventListener('click', () => this.openLink(link.url));
 
-            // Delete button
+            // Delete button (X icon)
             const deleteBtn = document.createElement('button');
             deleteBtn.className = 'delete-link-btn';
-            deleteBtn.textContent = 'Delete';
+            deleteBtn.innerHTML = '×';
+            deleteBtn.setAttribute('aria-label', 'Delete link');
             deleteBtn.addEventListener('click', () => this.deleteLink(link.id));
 
             linkItem.appendChild(linkName);
