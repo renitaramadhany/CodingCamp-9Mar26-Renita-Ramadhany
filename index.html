@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Theme Toggle & Settings -->
+    <div class="header-controls">
+        <button id="theme-toggle" aria-label="Toggle theme color">
+            <span class="theme-icon">💙</span>
+        </button>
+        <button id="name-settings" aria-label="Set your name">
+            <span class="settings-icon">⚙️</span>
+        </button>
+    </div>
+
+    <main class="dashboard">
+        <!-- Greeting Section - Top -->
+        <section id="greeting-section" aria-label="Greeting and time display">
+            <div class="time-display" aria-live="polite">12:00:00 AM</div>
+            <div class="date-display" aria-live="polite">Monday, January 1</div>
+            <h1 class="greeting-text">Good morning</h1>
+        </section>
+
+        <!-- Middle Section - Timer and Tasks side by side -->
+        <div class="middle-section">
+            <!-- Timer Section -->
+            <section id="timer-section" aria-label="Focus timer">
+                <h2>Focus Timer</h2>
+                <div class="timer-display" aria-live="polite" aria-atomic="true">25:00</div>
+                <div class="timer-controls">
+                    <button id="timer-start" aria-label="Start timer">Start</button>
+                    <button id="timer-stop" aria-label="Stop timer">Stop</button>
+                    <button id="timer-reset" aria-label="Reset timer">Reset</button>
+                    <button id="timer-settings" aria-label="Timer settings">⏱️ Set Time</button>
+                </div>
+            </section>
+
+            <!-- Task List Section -->
+            <section id="task-section" aria-label="Task list">
+                <h2>Tasks</h2>
+                <form id="task-form">
+                    <label for="task-input" class="visually-hidden">New task</label>
+                    <input 
+                        type="text" 
+                        id="task-input" 
+                        placeholder="Add a new task..." 
+                        aria-label="New task input"
+                    >
+                    <button type="submit">Add</button>
+                </form>
+                <ul id="task-list" aria-live="polite">
+                    <!-- Tasks will be dynamically inserted here -->
+                </ul>
+                <div class="empty-message" role="status">No tasks yet. Add one to get started!</div>
+            </section>
+        </div>
+
+        <!-- Quick Links Section - Bottom -->
+        <section id="quick-links-section" aria-label="Quick links">
+            <h2>Quick Links</h2>
+            <div class="link-form-container">
+                <input 
+                    type="text" 
+                    id="link-name-input" 
+                    placeholder="Link name" 
+                    aria-label="Link name input"
+                >
+                <input 
+                    type="url" 
+                    id="link-url-input" 
+                    placeholder="https://example.com" 
+                    aria-label="Link URL input"
+                >
+                <button id="add-link-btn">Add</button>
+            </div>
+            <div class="links-list" aria-live="polite">
+                <!-- Links will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
