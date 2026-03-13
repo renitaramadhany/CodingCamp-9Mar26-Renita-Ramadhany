@@ -611,8 +611,18 @@ class TaskListComponent {
             emptyMessage.style.display = this.tasks.length === 0 ? 'block' : 'none';
         }
 
+        // Sort tasks: incomplete tasks first, then completed tasks
+        const sortedTasks = [...this.tasks].sort((a, b) => {
+            // If completion status is different, incomplete comes first
+            if (a.completed !== b.completed) {
+                return a.completed ? 1 : -1;
+            }
+            // If same completion status, sort by creation time
+            return a.createdAt - b.createdAt;
+        });
+
         // Render each task
-        this.tasks.forEach(task => {
+        sortedTasks.forEach(task => {
             const taskItem = document.createElement('li');
             taskItem.className = 'task-item';
             if (task.completed) {
